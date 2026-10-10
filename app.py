@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 import joblib
 import numpy as np
@@ -63,10 +64,11 @@ with tab1:
     st.markdown("---")
     
     # Tombol Analisis
-    if st.button("🚀 Proses Analisis Lahan", use_container_width=True):
-        input_data = np.array([[n, p, k, temp, humidity, ph, rainfall]])
-        
-        prediksi = model.predict(input_data)[0]
+   if st.button("🚀 Proses Analisis Lahan", use_container_width=True):
+    # INI YANG BARU
+    input_data = pd.DataFrame([[n, p, k, temp, humidity, ph, rainfall]], 
+                              columns=['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall'])
+    prediksi = model.predict(input_data)[0]
         probabilitas = np.max(model.predict_proba(input_data)) * 100
         
         # 4. Tampilan Hasil Kustom dengan HTML dan Komponen Metrik
