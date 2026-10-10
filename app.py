@@ -39,22 +39,22 @@ with tab1:
     
     col1, col2, col3 = st.columns(3)
     
-    # Input Menggunakan Slider agar lebih interaktif
+    # Semua input sekarang menggunakan st.number_input agar angkanya bisa diketik presisi
     with col1:
         st.subheader("🧪 Hara Makro")
-        n = st.slider("Nitrogen (N)", 0, 140, 50)
-        p = st.slider("Fosfor (P)", 0, 145, 50)
-        k = st.slider("Kalium (K)", 0, 205, 50)
+        n = st.number_input("Nitrogen (N)", min_value=0.0, max_value=200.0, value=50.0)
+        p = st.number_input("Fosfor (P)", min_value=0.0, max_value=200.0, value=50.0)
+        k = st.number_input("Kalium (K)", min_value=0.0, max_value=300.0, value=50.0)
 
     with col2:
         st.subheader("🌡️ Cuaca & Iklim")
-        temp = st.slider("Suhu Udara (°C)", 10.0, 50.0, 25.0, step=0.5)
-        humidity = st.slider("Kelembapan (%)", 10.0, 100.0, 70.0, step=0.5)
-        rainfall = st.slider("Curah Hujan (mm)", 10.0, 300.0, 100.0)
+        temp = st.number_input("Suhu Udara (°C)", min_value=0.0, max_value=60.0, value=25.0)
+        humidity = st.number_input("Kelembapan (%)", min_value=0.0, max_value=100.0, value=70.0)
+        rainfall = st.number_input("Curah Hujan (mm)", min_value=0.0, max_value=400.0, value=100.0)
 
     with col3:
         st.subheader("💧 Kondisi Tanah")
-        ph = st.slider("pH Tanah", 3.0, 9.0, 6.5, step=0.1)
+        ph = st.number_input("pH Tanah", min_value=0.0, max_value=14.0, value=6.5)
         
         # Expander untuk bantuan
         with st.expander("ℹ️ Panduan pH Tanah"):
